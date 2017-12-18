@@ -44,6 +44,8 @@ class CurrentLocationViewController: UIViewController {
             lastLocationError = nil
             startLocationManager()
         }
+        
+        updateLabels()
     }
     
     override func viewDidLoad() {
@@ -141,11 +143,11 @@ extension CurrentLocationViewController: CLLocationManagerDelegate{
         let newLocation = locations.last!
         print("atualizou localização: \(newLocation)")
         
-        if myLocation != nil && newLocation.timestamp.timeIntervalSinceNow < -5{
+        if newLocation.timestamp.timeIntervalSinceNow < -5{
             return
         }
         
-        if myLocation != nil && newLocation.horizontalAccuracy < 0{
+        if newLocation.horizontalAccuracy < 0{
             return
         }
         
