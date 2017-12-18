@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		F4DF71061FE811E000288915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF71051FE811E000288915 /* AppDelegate.swift */; };
-		F4DF71081FE811E000288915 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF71071FE811E000288915 /* ViewController.swift */; };
 		F4DF710B1FE811E000288915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DF71091FE811E000288915 /* Main.storyboard */; };
 		F4DF710D1FE811E000288915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DF710C1FE811E000288915 /* Assets.xcassets */; };
 		F4DF71101FE811E000288915 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DF710E1FE811E000288915 /* LaunchScreen.storyboard */; };
+		F4DF71181FE813B400288915 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F4DF71171FE813B400288915 /* .gitignore */; };
+		F4DF711A1FE814BE00288915 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F4DF71021FE811DF00288915 /* meuslugares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meuslugares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF71051FE811E000288915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F4DF71071FE811E000288915 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F4DF710A1FE811E000288915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4DF710C1FE811E000288915 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4DF710F1FE811E000288915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4DF71111FE811E000288915 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4DF71171FE813B400288915 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +57,11 @@
 			isa = PBXGroup;
 			children = (
 				F4DF71051FE811E000288915 /* AppDelegate.swift */,
-				F4DF71071FE811E000288915 /* ViewController.swift */,
+				F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */,
 				F4DF71091FE811E000288915 /* Main.storyboard */,
-				F4DF710C1FE811E000288915 /* Assets.xcassets */,
 				F4DF710E1FE811E000288915 /* LaunchScreen.storyboard */,
+				F4DF710C1FE811E000288915 /* Assets.xcassets */,
+				F4DF71171FE813B400288915 /* .gitignore */,
 				F4DF71111FE811E000288915 /* Info.plist */,
 			);
 			path = meuslugares;
@@ -123,6 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DF71181FE813B400288915 /* .gitignore in Resources */,
 				F4DF71101FE811E000288915 /* LaunchScreen.storyboard in Resources */,
 				F4DF710D1FE811E000288915 /* Assets.xcassets in Resources */,
 				F4DF710B1FE811E000288915 /* Main.storyboard in Resources */,
@@ -136,8 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4DF71081FE811E000288915 /* ViewController.swift in Sources */,
 				F4DF71061FE811E000288915 /* AppDelegate.swift in Sources */,
+				F4DF711A1FE814BE00288915 /* CurrentLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
