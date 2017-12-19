@@ -30,6 +30,10 @@ class CurrentLocationViewController: UIViewController {
     
     var timer: Timer?
     
+    struct StoryBoard {
+        static let tagLocation = "TagLocation"
+    }
+    
     @IBAction func getLocation(){
         
         let authStatus = CLLocationManager.authorizationStatus()
@@ -55,6 +59,11 @@ class CurrentLocationViewController: UIViewController {
         }
         
         updateLabels()
+    }
+   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidLoad() {
@@ -178,6 +187,14 @@ class CurrentLocationViewController: UIViewController {
             stopLocationManager()
             lastLocationError = NSError(domain: "MyLocationsErrorDomain", code: 1, userInfo: nil)
             updateLabels()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == StoryBoard.tagLocation{
+            let controller = segue.destination as! LocationDetailViewController
+            controller.coordinate = myLocation!.coordinate
+            controller.placeMark = placeMark
         }
     }
 }
