@@ -23,6 +23,13 @@ class CurrentLocationViewController: UIViewController {
     var updatingLocation = false
     var lastLocationError:Error?
     
+    let geoCoder = CLGeocoder()
+    var placeMark: CLPlacemark?
+    var performingReverseGeoCoding = false
+    var lastGeocodingError:Error?
+    
+    var timer: Timer?
+    
     @IBAction func getLocation(){
         
         let authStatus = CLLocationManager.authorizationStatus()
@@ -42,6 +49,8 @@ class CurrentLocationViewController: UIViewController {
         }else{
             myLocation = nil
             lastLocationError = nil
+            placeMark = nil
+            lastGeocodingError = nil
             startLocationManager()
         }
         
@@ -71,6 +80,17 @@ class CurrentLocationViewController: UIViewController {
             
             tagBtn.isHidden = false
             messageLabel.text = ""
+            
+            if let placemark = placeMark{
+                addressLabel.text = string(from:placemark)
+            }else if performingReverseGeoCoding{
+                addressLabel.text = "Procurando endereço..."
+            }else if lastGeocodingError != nil{
+                addressLabel.text = "Erro para achar endereço."
+            }else{
+                addressLabel.text = "Não encontramos endereço."
+            }
+            
         }else{
             latLabel.text = ""
             longLabel.text = ""
@@ -104,6 +124,8 @@ class CurrentLocationViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
+            
+            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
         }
     }
     
@@ -112,6 +134,10 @@ class CurrentLocationViewController: UIViewController {
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
             updatingLocation = false
+            
+            if let timer = timer{
+                timer.invalidate()
+            }
         }
     }
     
@@ -120,6 +146,38 @@ class CurrentLocationViewController: UIViewController {
             getLocationBtn.setTitle("Parar", for: .normal)
         }else{
             getLocationBtn.setTitle("Qual a minha localização.", for: .normal)
+        }
+    }
+    
+    func string(from placemark: CLPlacemark) -> String{
+        
+        var line1 = ""
+        if let s = placemark.subThoroughfare {
+            line1 += s + " "
+        }
+
+        if let s = placemark.thoroughfare {
+            line1 += s }
+    
+        var line2 = ""
+        if let s = placemark.locality {
+            line2 += s + " "
+        }
+        if let s = placemark.administrativeArea {
+            line2 += s + " "
+        }
+        if let s = placemark.postalCode {
+            line2 += s }
+        
+        return line1 + "\n" + line2
+    }
+    
+    @objc func didTimeOut(){
+        print("Time Out")
+        if myLocation == nil{
+            stopLocationManager()
+            lastLocationError = NSError(domain: "MyLocationsErrorDomain", code: 1, userInfo: nil)
+            updateLabels()
         }
     }
 }
@@ -151,14 +209,45 @@ extension CurrentLocationViewController: CLLocationManagerDelegate{
             return
         }
         
+        var distance = CLLocationDistance(Double.greatestFiniteMagnitude)
+        if let location = myLocation{
+            distance = newLocation.distance(from: location)
+        }
+        
         if myLocation == nil || myLocation!.horizontalAccuracy > newLocation.horizontalAccuracy{
             myLocation = newLocation
             lastLocationError = nil
             
             if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy{
                 stopLocationManager()
+                
+                if distance > 0 {
+                    performingReverseGeoCoding = false
+                }
             }
-            updateLabels()
+            
+            if !performingReverseGeoCoding{
+                performingReverseGeoCoding = true
+                
+                geoCoder.reverseGeocodeLocation(newLocation, completionHandler: { (placemarks, error) in
+                   self.lastGeocodingError = error
+                    if error == nil, let p = placemarks, !p.isEmpty{
+                        self.placeMark = p.last!
+                    }else{
+                        self.placeMark = nil
+                    }
+                    
+                    self.performingReverseGeoCoding = false
+                    self.updateLabels()
+                })
+            }
+            
+        } else if distance < 1{
+            let timeInterval = newLocation.timestamp.timeIntervalSince(myLocation!.timestamp)
+            if timeInterval > 10 {
+                stopLocationManager()
+                updateLabels()
+            }
         }
     }
 }
