@@ -14,6 +14,7 @@
 		F4DF71181FE813B400288915 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F4DF71171FE813B400288915 /* .gitignore */; };
 		F4DF711A1FE814BE00288915 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */; };
 		F4DF711C1FE96DBE00288915 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF711B1FE96DBE00288915 /* LocationDetailViewController.swift */; };
+		F4DF711E1FEA72CC00288915 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF711D1FEA72CC00288915 /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F4DF71171FE813B400288915 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 		F4DF711B1FE96DBE00288915 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		F4DF711D1FEA72CC00288915 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				F4DF71051FE811E000288915 /* AppDelegate.swift */,
 				F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */,
 				F4DF711B1FE96DBE00288915 /* LocationDetailViewController.swift */,
+				F4DF711D1FEA72CC00288915 /* CategoryViewController.swift */,
 				F4DF71091FE811E000288915 /* Main.storyboard */,
 				F4DF710E1FE811E000288915 /* LaunchScreen.storyboard */,
 				F4DF710C1FE811E000288915 /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DF711E1FEA72CC00288915 /* CategoryViewController.swift in Sources */,
 				F4DF71061FE811E000288915 /* AppDelegate.swift in Sources */,
 				F4DF711C1FE96DBE00288915 /* LocationDetailViewController.swift in Sources */,
 				F4DF711A1FE814BE00288915 /* CurrentLocationViewController.swift in Sources */,

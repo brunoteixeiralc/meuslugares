@@ -18,6 +18,8 @@ class LocationDetailViewController: UITableViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    var categoryName = "Sem Categoria"
+    
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placeMark: CLPlacemark?
     private let dateFormatter: DateFormatter = {
@@ -26,6 +28,10 @@ class LocationDetailViewController: UITableViewController {
         formatter.timeStyle = .short
         return formatter
     }()
+    
+    struct StoryBoard {
+        static let pickerCategory = "PickerCategory"
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -47,6 +53,8 @@ class LocationDetailViewController: UITableViewController {
         }
         
         dateLabel.text = format(date:Date())
+        
+        categoryLabel.text = categoryName
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -62,6 +70,13 @@ class LocationDetailViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == StoryBoard.pickerCategory{
+            let controller = segue.destination as! CategoryViewController
+            controller.selectedCategoryName = categoryName
+        }
+    }
+    
     @IBAction func done(){
         navigationController?.popViewController(animated: true)
     }
@@ -70,6 +85,12 @@ class LocationDetailViewController: UITableViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func categoryPickerDidPick(_ segue: UIStoryboardSegue){
+        let controller = segue.source as! CategoryViewController
+        categoryName = controller.selectedCategoryName
+        categoryLabel.text = categoryName
+    }
+
     func format(date:Date) -> String{
         return dateFormatter.string(from:date)
     }
