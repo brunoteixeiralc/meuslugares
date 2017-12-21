@@ -128,7 +128,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="(A descrição vem aqui)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yW5-aV-J99">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="(A descrição vem aqui)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yW5-aV-J99">
                                                     <rect key="frame" x="16" y="9" width="288" height="68"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -36,6 +36,7 @@ class LocationDetailViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.isNavigationBarHidden = false
+
     }
     
     override func viewDidLoad() {
@@ -55,6 +56,10 @@ class LocationDetailViewController: UITableViewController {
         dateLabel.text = format(date:Date())
         
         categoryLabel.text = categoryName
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -70,6 +75,20 @@ class LocationDetailViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1{
+            return indexPath
+        }else{
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0{
+            descriptionTxt.becomeFirstResponder()
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == StoryBoard.pickerCategory{
             let controller = segue.destination as! CategoryViewController
@@ -78,7 +97,14 @@ class LocationDetailViewController: UITableViewController {
     }
     
     @IBAction func done(){
-        navigationController?.popViewController(animated: true)
+        let hudView = HudView.hud(inView: (navigationController?.view)!, animated: true)
+        hudView.text = "Marcado"
+        
+        let delayInSeconds = 0.6
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+            hudView.hide()
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func cancel(){
@@ -116,5 +142,15 @@ class LocationDetailViewController: UITableViewController {
             line2 += s }
         
         return line1 + "\n" + line2
+    }
+    
+    @objc func hideKeyboard(_ gestureRecognizer: UIGestureRecognizer){
+        let point = gestureRecognizer.location(in: tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        if indexPath != nil && indexPath!.section == 0 && indexPath?.row == 0{
+            return
+        }
+        descriptionTxt.resignFirstResponder()
     }
 }

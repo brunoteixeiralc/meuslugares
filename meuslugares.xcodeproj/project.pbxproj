@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F42777181FEC276F0096A574 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42777171FEC276F0096A574 /* HudView.swift */; };
 		F4DF71061FE811E000288915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF71051FE811E000288915 /* AppDelegate.swift */; };
 		F4DF710B1FE811E000288915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DF71091FE811E000288915 /* Main.storyboard */; };
 		F4DF710D1FE811E000288915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DF710C1FE811E000288915 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F42777171FEC276F0096A574 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		F4DF71021FE811DF00288915 /* meuslugares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meuslugares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF71051FE811E000288915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4DF710A1FE811E000288915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				F4DF710C1FE811E000288915 /* Assets.xcassets */,
 				F4DF71171FE813B400288915 /* .gitignore */,
 				F4DF71111FE811E000288915 /* Info.plist */,
+				F42777171FEC276F0096A574 /* HudView.swift */,
 			);
 			path = meuslugares;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4DF711E1FEA72CC00288915 /* CategoryViewController.swift in Sources */,
+				F42777181FEC276F0096A574 /* HudView.swift in Sources */,
 				F4DF71061FE811E000288915 /* AppDelegate.swift in Sources */,
 				F4DF711C1FE96DBE00288915 /* LocationDetailViewController.swift in Sources */,
 				F4DF711A1FE814BE00288915 /* CurrentLocationViewController.swift in Sources */,
