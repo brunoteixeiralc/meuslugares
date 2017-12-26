@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class LocationDetailViewController: UITableViewController {
     
@@ -19,6 +20,9 @@ class LocationDetailViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
     
     var categoryName = "Sem Categoria"
+    var date = Date()
+    
+    var managedObjectContext: NSManagedObjectContext?
     
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placeMark: CLPlacemark?
@@ -28,6 +32,8 @@ class LocationDetailViewController: UITableViewController {
         formatter.timeStyle = .short
         return formatter
     }()
+    
+    let CoreDataSaveFailedNotification = Notification.Name("CoreDataSaveFailedNotification")
     
     struct StoryBoard {
         static let pickerCategory = "PickerCategory"
@@ -100,11 +106,24 @@ class LocationDetailViewController: UITableViewController {
         let hudView = HudView.hud(inView: (navigationController?.view)!, animated: true)
         hudView.text = "Marcado"
         
-        let delayInSeconds = 0.6
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
-            hudView.hide()
-            self.navigationController?.popViewController(animated: true)
-        }
+        let location = Location(context: managedObjectContext!)
+        location.locationDescription = descriptionTxt.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placeMark = placeMark
+        
+        do {
+            try managedObjectContext?.save()
+            let delayInSeconds = 0.6
+            DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+                hudView.hide()
+                self.navigationController?.popViewController(animated: true)
+            }
+        }catch {
+                fatalCoreDataError(error)
+            }
     }
     
     @IBAction func cancel(){
@@ -115,6 +134,11 @@ class LocationDetailViewController: UITableViewController {
         let controller = segue.source as! CategoryViewController
         categoryName = controller.selectedCategoryName
         categoryLabel.text = categoryName
+    }
+    
+    func fatalCoreDataError(_ error: Error){
+        print("***Fatal error: \(error)")
+        NotificationCenter.default.post(name: CoreDataSaveFailedNotification, object: nil)
     }
 
     func format(date:Date) -> String{
