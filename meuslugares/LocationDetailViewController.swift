@@ -120,6 +120,7 @@ class LocationDetailViewController: UITableViewController {
                 self.navigationController?.popViewController(animated: true)
             }
         }catch {
+                hudView.hide()
                 fatalCoreDataError(error)
             }
     }
