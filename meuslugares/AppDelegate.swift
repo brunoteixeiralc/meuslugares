@@ -25,14 +25,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
-
-    let applicationDocumentsDirectory: URL = {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }()
     
     func listenForFatalCoreDataNotification(){
+        NotificationCenter.default.addObserver(forName: CoreDataSaveFailedNotification, object: nil, queue: OperationQueue.main) { (notification) in
+            let message = """
+Ocorreu um erro no aplicativo e não pode ser continuado.
 
+Pressione OK para fechar o app.Desculpe pelo incoveniente.
+"""
+            let alert = UIAlertController(title: "Erro Interno", message: message, preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: { _ in
+                let exception = NSException(name: NSExceptionName.internalInconsistencyException, reason: "Fatal Core Data Error", userInfo: nil)
+                exception.raise()
+            })
+            alert.addAction(action)
+            
+            let tabController = self.window!.rootViewController!
+            tabController.present(alert, animated: true, completion: nil)
+        }
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -44,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             controller.managedObjectContext = managedObjectContext
         }
         
-        //print(applicationDocumentsDirectory)
+        listenForFatalCoreDataNotification()
         
         return true
     }

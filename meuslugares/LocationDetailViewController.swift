@@ -33,8 +33,6 @@ class LocationDetailViewController: UITableViewController {
         return formatter
     }()
     
-    let CoreDataSaveFailedNotification = Notification.Name("CoreDataSaveFailedNotification")
-    
     struct StoryBoard {
         static let pickerCategory = "PickerCategory"
     }
@@ -112,7 +110,7 @@ class LocationDetailViewController: UITableViewController {
         location.latitude = coordinate.latitude
         location.longitude = coordinate.longitude
         location.date = date
-        location.placeMark = placeMark
+        location.placeMark = nil
         
         do {
             try managedObjectContext?.save()
@@ -135,12 +133,7 @@ class LocationDetailViewController: UITableViewController {
         categoryName = controller.selectedCategoryName
         categoryLabel.text = categoryName
     }
-    
-    func fatalCoreDataError(_ error: Error){
-        print("***Fatal error: \(error)")
-        NotificationCenter.default.post(name: CoreDataSaveFailedNotification, object: nil)
-    }
-
+   
     func format(date:Date) -> String{
         return dateFormatter.string(from:date)
     }
