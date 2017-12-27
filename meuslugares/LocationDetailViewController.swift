@@ -21,6 +21,7 @@ class LocationDetailViewController: UITableViewController {
     
     var categoryName = "Sem Categoria"
     var date = Date()
+    var descriptionText = ""
     
     var managedObjectContext: NSManagedObjectContext?
     
@@ -32,6 +33,19 @@ class LocationDetailViewController: UITableViewController {
         formatter.timeStyle = .short
         return formatter
     }()
+    
+    var locationToEdit: Location? {
+        didSet{
+            if let location = locationToEdit{
+                title = "Editar localização"
+                descriptionText = location.locationDescription
+                categoryName = location.category
+                date = location.date
+                coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                placeMark = location.placeMark
+            }
+        }
+    }
     
     struct StoryBoard {
         static let pickerCategory = "PickerCategory"
@@ -57,9 +71,9 @@ class LocationDetailViewController: UITableViewController {
             addressLabel.text = "Não encontramos endereço."
         }
         
-        dateLabel.text = format(date:Date())
-        
+        dateLabel.text = format(date:date)
         categoryLabel.text = categoryName
+        descriptionTxt.text = descriptionText
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         gestureRecognizer.cancelsTouchesInView = false
@@ -102,9 +116,16 @@ class LocationDetailViewController: UITableViewController {
     
     @IBAction func done(){
         let hudView = HudView.hud(inView: (navigationController?.view)!, animated: true)
-        hudView.text = "Marcado"
         
-        let location = Location(context: managedObjectContext!)
+        let location:Location
+        if let temp = locationToEdit{
+            hudView.text = "Atualizado"
+            location = temp
+        }else{
+          hudView.text = "Marcado"
+          location = Location(context: managedObjectContext!)
+        }
+        
         location.locationDescription = descriptionTxt.text
         location.category = categoryName
         location.latitude = coordinate.latitude

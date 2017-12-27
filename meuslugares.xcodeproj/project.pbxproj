@@ -12,6 +12,8 @@
 		F427771E1FF265FD0096A574 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427771C1FF265FD0096A574 /* Location+CoreDataClass.swift */; };
 		F427771F1FF265FD0096A574 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427771D1FF265FD0096A574 /* Location+CoreDataProperties.swift */; };
 		F42777211FF2BEE90096A574 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42777201FF2BEE90096A574 /* Functions.swift */; };
+		F47E34521FF3FC6D00458F5C /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E34511FF3FC6D00458F5C /* LocationsViewController.swift */; };
+		F47E34551FF3FCA600458F5C /* LocationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E34541FF3FCA600458F5C /* LocationViewCell.swift */; };
 		F4DF71061FE811E000288915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF71051FE811E000288915 /* AppDelegate.swift */; };
 		F4DF710B1FE811E000288915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DF71091FE811E000288915 /* Main.storyboard */; };
 		F4DF710D1FE811E000288915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DF710C1FE811E000288915 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		F427771C1FF265FD0096A574 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataClass.swift"; path = "meuslugares/Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F427771D1FF265FD0096A574 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataProperties.swift"; path = "meuslugares/Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F42777201FF2BEE90096A574 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		F47E34511FF3FC6D00458F5C /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		F47E34541FF3FCA600458F5C /* LocationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewCell.swift; sourceTree = "<group>"; };
 		F4DF71021FE811DF00288915 /* meuslugares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meuslugares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF71051FE811E000288915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4DF710A1FE811E000288915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 				F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */,
 				F4DF711B1FE96DBE00288915 /* LocationDetailViewController.swift */,
 				F4DF711D1FEA72CC00288915 /* CategoryViewController.swift */,
+				F47E34511FF3FC6D00458F5C /* LocationsViewController.swift */,
+				F47E34541FF3FCA600458F5C /* LocationViewCell.swift */,
 				F42777171FEC276F0096A574 /* HudView.swift */,
 				F42777201FF2BEE90096A574 /* Functions.swift */,
 				F4DF71091FE811E000288915 /* Main.storyboard */,
@@ -162,9 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F427771F1FF265FD0096A574 /* Location+CoreDataProperties.swift in Sources */,
+				F47E34521FF3FC6D00458F5C /* LocationsViewController.swift in Sources */,
 				F427771E1FF265FD0096A574 /* Location+CoreDataClass.swift in Sources */,
 				F42777211FF2BEE90096A574 /* Functions.swift in Sources */,
 				F4DF711E1FEA72CC00288915 /* CategoryViewController.swift in Sources */,
+				F47E34551FF3FCA600458F5C /* LocationViewCell.swift in Sources */,
 				F42777181FEC276F0096A574 /* HudView.swift in Sources */,
 				F4DF71061FE811E000288915 /* AppDelegate.swift in Sources */,
 				F427771B1FF263CE0096A574 /* DataModel.xcdatamodeld in Sources */,

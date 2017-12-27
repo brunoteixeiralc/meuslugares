@@ -50,9 +50,13 @@ Pressione OK para fechar o app.Desculpe pelo incoveniente.
         
         let tabController = window!.rootViewController as! UITabBarController
         if let tabViewControllers = tabController.viewControllers{
-            let navController = tabViewControllers[0] as! UINavigationController
+            var navController = tabViewControllers[0] as! UINavigationController
             let controller = navController.viewControllers.first as! CurrentLocationViewController
             controller.managedObjectContext = managedObjectContext
+            
+            navController = tabViewControllers[1] as! UINavigationController
+            let controller2 = navController.viewControllers.first as! LocationsViewController
+            controller2.managedObjectContext = managedObjectContext
         }
         
         listenForFatalCoreDataNotification()
