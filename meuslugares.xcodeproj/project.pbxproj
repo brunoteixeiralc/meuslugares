@@ -27,8 +27,8 @@
 /* Begin PBXFileReference section */
 		F42777171FEC276F0096A574 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		F427771A1FF263CE0096A574 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		F427771C1FF265FD0096A574 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataClass.swift"; path = "meuslugares/Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		F427771D1FF265FD0096A574 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataProperties.swift"; path = "meuslugares/Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F427771C1FF265FD0096A574 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F427771D1FF265FD0096A574 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F42777201FF2BEE90096A574 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		F47E34511FF3FC6D00458F5C /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		F47E34541FF3FCA600458F5C /* LocationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewCell.swift; sourceTree = "<group>"; };
@@ -55,11 +55,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F4DF70F91FE811DF00288915 = {
+		F47E34561FF412B600458F5C /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */,
+				F4DF711B1FE96DBE00288915 /* LocationDetailViewController.swift */,
+				F4DF711D1FEA72CC00288915 /* CategoryViewController.swift */,
+				F47E34511FF3FC6D00458F5C /* LocationsViewController.swift */,
+			);
+			path = viewControllers;
+			sourceTree = "<group>";
+		};
+		F47E34571FF412C200458F5C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F47E34541FF3FCA600458F5C /* LocationViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		F47E34581FF412D200458F5C /* coreData */ = {
 			isa = PBXGroup;
 			children = (
 				F427771C1FF265FD0096A574 /* Location+CoreDataClass.swift */,
 				F427771D1FF265FD0096A574 /* Location+CoreDataProperties.swift */,
+			);
+			path = coreData;
+			sourceTree = "<group>";
+		};
+		F47E34591FF412E400458F5C /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				F42777171FEC276F0096A574 /* HudView.swift */,
+				F42777201FF2BEE90096A574 /* Functions.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		F47E345A1FF412F600458F5C /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F4DF71091FE811E000288915 /* Main.storyboard */,
+				F4DF710E1FE811E000288915 /* LaunchScreen.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
+		F4DF70F91FE811DF00288915 = {
+			isa = PBXGroup;
+			children = (
 				F4DF71041FE811E000288915 /* meuslugares */,
 				F4DF71031FE811DF00288915 /* Products */,
 			);
@@ -77,15 +121,11 @@
 			isa = PBXGroup;
 			children = (
 				F4DF71051FE811E000288915 /* AppDelegate.swift */,
-				F4DF71191FE814BE00288915 /* CurrentLocationViewController.swift */,
-				F4DF711B1FE96DBE00288915 /* LocationDetailViewController.swift */,
-				F4DF711D1FEA72CC00288915 /* CategoryViewController.swift */,
-				F47E34511FF3FC6D00458F5C /* LocationsViewController.swift */,
-				F47E34541FF3FCA600458F5C /* LocationViewCell.swift */,
-				F42777171FEC276F0096A574 /* HudView.swift */,
-				F42777201FF2BEE90096A574 /* Functions.swift */,
-				F4DF71091FE811E000288915 /* Main.storyboard */,
-				F4DF710E1FE811E000288915 /* LaunchScreen.storyboard */,
+				F47E34581FF412D200458F5C /* coreData */,
+				F47E34561FF412B600458F5C /* viewControllers */,
+				F47E34571FF412C200458F5C /* cell */,
+				F47E34591FF412E400458F5C /* utils */,
+				F47E345A1FF412F600458F5C /* storyboards */,
 				F4DF710C1FE811E000288915 /* Assets.xcassets */,
 				F4DF71171FE813B400288915 /* .gitignore */,
 				F4DF71111FE811E000288915 /* Info.plist */,
