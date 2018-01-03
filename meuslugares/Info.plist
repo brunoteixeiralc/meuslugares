@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Meus Lugares precisa do sua câmera para você tirar algumas fotos da sua localidade</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Adicione fotos da sua localidade</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Meus Lugares precisa do seu GPS para te mostrar alguns lugares interessantes.</string>
 	<key>CFBundleDevelopmentRegion</key>

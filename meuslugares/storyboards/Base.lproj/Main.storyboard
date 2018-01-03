@@ -362,7 +362,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B1F-dm-bMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-298" y="128"/>
+            <point key="canvasLocation" x="-377" y="723"/>
         </scene>
         <!--Aonde estou ?-->
         <scene sceneID="4vp-73-LnL">
@@ -431,7 +431,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EI7-Sl-0Aw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1890" y="486.97183098591552"/>
+            <point key="canvasLocation" x="1494" y="487"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="U5e-hx-vW1">
@@ -450,7 +450,11 @@
                         <viewLayoutGuide key="safeArea" id="pkM-nc-TJE"/>
                     </view>
                     <navigationItem key="navigationItem" id="XxC-Je-Tka">
-                        <barButtonItem key="leftBarButtonItem" title="Localização" id="Eb7-tG-0IE"/>
+                        <barButtonItem key="leftBarButtonItem" title="Localização" id="Eb7-tG-0IE">
+                            <connections>
+                                <action selector="showLocations" destination="sbF-S6-WHW" id="a8Z-jj-JbY"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Usuário" id="jhD-Xa-tLz">
                             <connections>
                                 <action selector="showUser" destination="sbF-S6-WHW" id="IwF-bc-LFB"/>
@@ -459,11 +463,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="o3B-QW-0UP" id="HnS-cE-pbI"/>
+                        <segue destination="Kmj-gc-0Ev" kind="show" identifier="EditLocation" id="xVK-5F-rbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6F-4t-hnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="502.5" y="1164.0845070422536"/>
+            <point key="canvasLocation" x="1493" y="1205"/>
         </scene>
         <!--Localizações-->
         <scene sceneID="lMu-fU-kfK">
@@ -480,7 +485,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jz9-D4-LaO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1050" y="486.97183098591552"/>
+            <point key="canvasLocation" x="653" y="487"/>
         </scene>
         <!--Mapa-->
         <scene sceneID="EEF-3F-FtG">
@@ -499,7 +504,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ffq-xa-ofM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-298.125" y="903.16901408450701"/>
+            <point key="canvasLocation" x="653" y="1206"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -104,6 +104,8 @@ class LocationDetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0{
             descriptionTxt.becomeFirstResponder()
+        }else if indexPath.section == 1 && indexPath.row == 0{
+            takePhoto()
         }
     }
     
@@ -191,5 +193,24 @@ class LocationDetailViewController: UITableViewController {
             return
         }
         descriptionTxt.resignFirstResponder()
+    }
+}
+
+extension LocationDetailViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    
+    func takePhoto(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .camera
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
