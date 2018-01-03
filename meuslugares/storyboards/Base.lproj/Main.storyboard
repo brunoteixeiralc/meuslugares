@@ -160,14 +160,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adicionar foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3A-pt-t1N">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adicionar foto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3A-pt-t1N">
                                                     <rect key="frame" x="16" y="12" width="107" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="46h-RH-Qmu">
+                                                    <rect key="frame" x="8" y="8" width="278" height="27.5"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="46h-RH-Qmu" firstAttribute="leading" secondItem="bYA-v4-X2y" secondAttribute="leading" constant="8" id="CSn-OZ-xj2"/>
+                                                <constraint firstAttribute="bottom" secondItem="46h-RH-Qmu" secondAttribute="bottom" constant="8" id="G69-RU-TBW"/>
+                                                <constraint firstItem="46h-RH-Qmu" firstAttribute="top" secondItem="bYA-v4-X2y" secondAttribute="top" constant="8" id="O5Q-Au-Fe6"/>
+                                                <constraint firstItem="Z3A-pt-t1N" firstAttribute="top" secondItem="bYA-v4-X2y" secondAttribute="top" constant="12" id="YCB-9e-YnR"/>
+                                                <constraint firstAttribute="trailing" secondItem="46h-RH-Qmu" secondAttribute="trailing" id="lVn-Ht-9Qj"/>
+                                                <constraint firstItem="Z3A-pt-t1N" firstAttribute="leading" secondItem="bYA-v4-X2y" secondAttribute="leading" constant="16" id="oHc-KC-BeV"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Z3A-pt-t1N" secondAttribute="trailing" constant="20" symbolic="YES" id="oYm-f5-aak"/>
+                                                <constraint firstAttribute="bottom" secondItem="Z3A-pt-t1N" secondAttribute="bottom" constant="10.5" id="xVc-Fh-9FB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -292,10 +304,12 @@
                     </navigationItem>
                     <size key="freeformSize" width="320" height="600"/>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="Z3A-pt-t1N" id="eLW-jj-Aol"/>
                         <outlet property="addressLabel" destination="mKo-gE-Qgh" id="FG1-d1-HpS"/>
                         <outlet property="categoryLabel" destination="t1s-xH-Cv6" id="l0p-pj-dTA"/>
                         <outlet property="dateLabel" destination="e4f-0s-tht" id="60U-t0-CY5"/>
                         <outlet property="descriptionTxt" destination="yW5-aV-J99" id="ae2-P0-9iX"/>
+                        <outlet property="imageView" destination="46h-RH-Qmu" id="f87-um-2x7"/>
                         <outlet property="latLabel" destination="Nk0-FC-URW" id="27O-88-T6k"/>
                         <outlet property="longLabel" destination="3oc-Jv-tx1" id="CRr-tq-X2b"/>
                     </connections>

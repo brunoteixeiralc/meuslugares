@@ -19,6 +19,11 @@ class LocationDetailViewController: UITableViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var addPhotoLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    var image:UIImage?
+    
+    
     var categoryName = "Sem Categoria"
     var date = Date()
     var descriptionText = ""
@@ -83,6 +88,12 @@ class LocationDetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 && indexPath.row == 0{
             return 88
+        }else if indexPath.section == 1{
+            if imageView.isHidden{
+                return 44
+            }else{
+                return 280
+            }
         }else if indexPath.section == 2 && indexPath.row == 2{
             addressLabel.frame.size = CGSize(width: view.bounds.size.width - 120, height: 1000)
             addressLabel.sizeToFit()
@@ -105,7 +116,8 @@ class LocationDetailViewController: UITableViewController {
         if indexPath.section == 0 && indexPath.row == 0{
             descriptionTxt.becomeFirstResponder()
         }else if indexPath.section == 1 && indexPath.row == 0{
-            takePhoto()
+            tableView.deselectRow(at: indexPath, animated: true)
+            showPhotoMenu()
         }
     }
     
@@ -185,6 +197,15 @@ class LocationDetailViewController: UITableViewController {
         return line1 + "\n" + line2
     }
     
+    func show(image:UIImage){
+        imageView.image = image
+        imageView.isHidden = false
+        imageView.frame = CGRect(x: 10, y: 10, width: 260, height: 260)
+        
+        addPhotoLabel.isHidden = true
+        
+    }
+    
     @objc func hideKeyboard(_ gestureRecognizer: UIGestureRecognizer){
         let point = gestureRecognizer.location(in: tableView)
         let indexPath = tableView.indexPathForRow(at: point)
@@ -206,7 +227,50 @@ extension LocationDetailViewController: UIImagePickerControllerDelegate,UINaviga
         present(imagePicker, animated: true, completion: nil)
     }
     
+    func choosePhoto(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func pickPhoto(){
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            takePhoto()
+        }else{
+            choosePhoto()
+        }
+    }
+    
+    func showPhotoMenu(){
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let actCancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alert.addAction(actCancel)
+        
+        let actPhoto = UIAlertAction(title: "Tirar foto", style: .default, handler: { _ in
+            self.takePhoto()
+        })
+        alert.addAction(actPhoto)
+        
+        let actLibrary = UIAlertAction(title: "Escolher na biblioteca", style: .default, handler: { _ in
+            self.choosePhoto()
+        })
+        alert.addAction(actLibrary)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        image = info[UIImagePickerControllerEditedImage] as? UIImage
+        if let theImage = image{
+            show(image: theImage)
+        }
+        
+        tableView.reloadData()
         dismiss(animated: true, completion: nil)
     }
     
