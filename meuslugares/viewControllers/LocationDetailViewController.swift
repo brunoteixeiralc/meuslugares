@@ -23,7 +23,6 @@ class LocationDetailViewController: UITableViewController {
     @IBOutlet weak var imageView: UIImageView!
     var image:UIImage?
     
-    
     var categoryName = "Sem Categoria"
     var date = Date()
     var descriptionText = ""
@@ -48,6 +47,7 @@ class LocationDetailViewController: UITableViewController {
                 date = location.date
                 coordinate = CLLocationCoordinate2DMake(location.latitude, location.longitude)
                 placeMark = location.placeMark
+                
             }
         }
     }
@@ -64,6 +64,16 @@ class LocationDetailViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listenForBackgroundNotification()
+        
+        if let location = locationToEdit {
+            if location.hasPhoto {
+                if let theImage = location.photoImage {
+                    show(image: theImage)
+                }
+            }
+        }
         
         descriptionTxt.text = ""
         categoryLabel.text = ""
@@ -86,20 +96,17 @@ class LocationDetailViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 && indexPath.row == 0{
+        switch (indexPath.section,indexPath.row) {
+        case (0,0):
             return 88
-        }else if indexPath.section == 1{
-            if imageView.isHidden{
-                return 44
-            }else{
-                return 280
-            }
-        }else if indexPath.section == 2 && indexPath.row == 2{
+        case (1,_):
+            return imageView.isHidden ? 44 : 280
+        case (2,2):
             addressLabel.frame.size = CGSize(width: view.bounds.size.width - 120, height: 1000)
             addressLabel.sizeToFit()
             addressLabel.frame.origin.x = view.bounds.size.width - addressLabel.frame.size.width - 16
             return addressLabel.frame.size.height + 20
-        }else{
+        default:
             return 44
         }
     }
@@ -138,6 +145,7 @@ class LocationDetailViewController: UITableViewController {
         }else{
           hudView.text = "Marcado"
           location = Location(context: managedObjectContext!)
+          location.photoID = nil
         }
         
         location.locationDescription = descriptionTxt.text
@@ -146,6 +154,20 @@ class LocationDetailViewController: UITableViewController {
         location.longitude = coordinate.longitude
         location.date = date
         location.placeMark = nil
+        
+        if let image = image {
+            if !location.hasPhoto{
+                location.photoID = Location.nextPhotoID() as NSNumber
+            }
+        
+            if let data = UIImageJPEGRepresentation(image, 0.5){
+                do{
+                    try data.write(to: location.photoURL,options: .atomic)
+                }catch {
+                    print("Erro: \(error)")
+                }
+            }
+        }
         
         do {
             try managedObjectContext?.save()
@@ -168,6 +190,18 @@ class LocationDetailViewController: UITableViewController {
         let controller = segue.source as! CategoryViewController
         categoryName = controller.selectedCategoryName
         categoryLabel.text = categoryName
+    }
+    
+    func listenForBackgroundNotification(){
+        NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidEnterBackground, object: nil, queue: OperationQueue.main) { [weak self] _ in
+            
+            if let weakSelf = self{
+                if weakSelf.presentationController != nil{
+                    weakSelf.dismiss(animated: true, completion: nil)
+                }
+                weakSelf.descriptionTxt.resignFirstResponder()
+            }
+        }
     }
    
     func format(date:Date) -> String{
