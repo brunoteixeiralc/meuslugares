@@ -35,6 +35,16 @@ public class Location: NSManagedObject {
         userDefaults.synchronize()
         return currentID
     }
+    
+    func removePhotoFile(){
+        if hasPhoto{
+            do {
+                try FileManager.default.removeItem(at: photoURL)
+            }catch{
+                print("Error para remover o arquivo \(error)")
+            }
+        }
+    }
 }
 
 extension Location: MKAnnotation {
