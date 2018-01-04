@@ -121,7 +121,7 @@ class CurrentLocationViewController: UIViewController {
             }else if updatingLocation{
                 statusMessage = "Procurando..."
             }else{
-                statusMessage = "Clique 'Qual a minha localização' para começar."
+                statusMessage = "Clique 'Qual a minha localização?' para começar."
             }
             
             messageLabel.text = statusMessage
@@ -157,31 +157,24 @@ class CurrentLocationViewController: UIViewController {
         if updatingLocation{
             getLocationBtn.setTitle("Parar", for: .normal)
         }else{
-            getLocationBtn.setTitle("Qual a minha localização.", for: .normal)
+            getLocationBtn.setTitle("Qual a minha localização?", for: .normal)
         }
     }
     
     func string(from placemark: CLPlacemark) -> String{
         
         var line1 = ""
-        if let s = placemark.subThoroughfare {
-            line1 += s + " "
-        }
-
-        if let s = placemark.thoroughfare {
-            line1 += s }
-    
-        var line2 = ""
-        if let s = placemark.locality {
-            line2 += s + " "
-        }
-        if let s = placemark.administrativeArea {
-            line2 += s + " "
-        }
-        if let s = placemark.postalCode {
-            line2 += s }
+        line1.add(text: placemark.subThoroughfare)
+        line1.add(text: placemark.thoroughfare, separatedBy: " ")
         
-        return line1 + "\n" + line2
+        var line2 = ""
+        line2.add(text: placemark.locality)
+        line2.add(text: placemark.administrativeArea,separatedBy: " ")
+        line2.add(text: placemark.postalCode, separatedBy: " ")
+        
+        line1.add(text: line2, separatedBy: "\n")
+        
+        return line1
     }
     
     @objc func didTimeOut(){

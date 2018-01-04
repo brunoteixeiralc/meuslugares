@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Meus Lugares precisa do sua câmera para você tirar algumas fotos da sua localidade</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Adicione fotos da sua localidade</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Meus Lugares precisa do seu GPS para te mostrar alguns lugares interessantes.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -28,6 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Meus Lugares precisa do sua câmera para você tirar algumas fotos da sua localidade</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Meus Lugares precisa do seu GPS para te mostrar alguns lugares interessantes.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Adicione fotos da sua localidade</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -37,6 +37,8 @@
 		<string>location-services</string>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

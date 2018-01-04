@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+        </array>
+        <array key="AvenirNextCondensed.ttc">
+            <string>AvenirNextCondensed-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Current Location View Controller-->
         <scene sceneID="JDb-51-JyB">
@@ -18,34 +26,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNA-uH-C2R">
-                                <rect key="frame" x="16" y="121" width="63" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfK-GL-q1j">
-                                <rect key="frame" x="87" y="121" width="217" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEA-V1-VDf">
-                                <rect key="frame" x="101" y="170" width="203" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOJ-2e-L3K">
-                                <rect key="frame" x="16" y="170" width="77" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wra-jH-ZcE">
                                 <rect key="frame" x="71" y="295" width="178" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -57,22 +37,53 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08c-C5-Gmm">
                                 <rect key="frame" x="16" y="470" width="295" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Qual a minha localização"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Qual a minha localização?">
+                                    <color key="titleColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="getLocation" destination="zYG-Co-Deg" eventType="touchUpInside" id="VNY-Q5-qhi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Endereço" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GK-7T-EIf">
-                                <rect key="frame" x="16" y="199" width="288" height="57"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mensagem" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6m6-0Z-Ifz">
+                                <rect key="frame" x="16" y="70" width="295" height="54"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="17"/>
+                                <color key="textColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lNA-uH-C2R">
+                                <rect key="frame" x="16" y="145" width="63" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mensagem" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6m6-0Z-Ifz">
-                                <rect key="frame" x="16" y="70" width="295" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfK-GL-q1j">
+                                <rect key="frame" x="87" y="145" width="217" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEA-V1-VDf">
+                                <rect key="frame" x="101" y="194" width="203" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOJ-2e-L3K">
+                                <rect key="frame" x="16" y="194" width="77" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Endereço" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GK-7T-EIf">
+                                <rect key="frame" x="16" y="223" width="288" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -92,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLE-OQ-xWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1496" y="-207"/>
+            <point key="canvasLocation" x="1494.375" y="-207.04225352112675"/>
         </scene>
         <!--Marcação-->
         <scene sceneID="Ubi-cT-f3R">
@@ -102,6 +113,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Descrição" id="wmw-hX-ugH">
                                 <cells>
@@ -292,11 +304,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Marcação" id="2eT-3P-F1b">
                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="GpB-DM-FrP">
+                            <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="cancel" destination="Kmj-gc-0Ev" id="ucO-oc-Dw0"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="OK" id="NCd-Q5-rbZ">
+                            <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="done" destination="Kmj-gc-0Ev" id="6Xf-Cm-C8d"/>
                             </connections>
@@ -367,6 +381,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.80784313730000001" green="0.81568627449999997" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="FiT-BI-G9B" kind="relationship" relationship="viewControllers" id="Eku-rZ-rzX"/>
@@ -382,11 +399,15 @@
         <scene sceneID="4vp-73-LnL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FiT-BI-G9B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Aonde estou ?" id="PjO-h2-zjt"/>
+                    <tabBarItem key="tabBarItem" title="Aonde estou ?" image="tag" id="PjO-h2-zjt">
+                        <color key="badgeColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mrC-Fg-Qq6">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.94509803921568625" green="0.31372549019607843" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -397,14 +418,18 @@
             </objects>
             <point key="canvasLocation" x="652.5" y="-207.04225352112675"/>
         </scene>
-        <!--Localizações-->
+        <!--Minhas Localizações-->
         <scene sceneID="eRd-yT-c44">
             <objects>
                 <tableViewController id="sjb-W0-o9N" customClass="LocationsViewController" customModule="meuslugares" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YHx-hi-i3C">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YHx-hi-i3C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="57" id="PFV-W5-dzc" customClass="LocationViewCell" customModule="meuslugares" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="57"/>
@@ -416,14 +441,14 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNL-XZ-pYM">
                                             <rect key="frame" x="76" y="11" width="210" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3og-0s-FMl">
                                             <rect key="frame" x="76" y="35" width="210" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -446,7 +471,7 @@
                             <outlet property="delegate" destination="sjb-W0-o9N" id="kJe-OV-e75"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Localizações" id="gfN-tP-qx8"/>
+                    <navigationItem key="navigationItem" title="Minhas Localizações" id="gfN-tP-qx8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EI7-Sl-0Aw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -463,18 +488,21 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o3B-QW-0UP">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pkM-nc-TJE"/>
                     </view>
                     <navigationItem key="navigationItem" id="XxC-Je-Tka">
-                        <barButtonItem key="leftBarButtonItem" title="Localização" id="Eb7-tG-0IE">
+                        <barButtonItem key="leftBarButtonItem" image="pin" id="Eb7-tG-0IE">
+                            <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showLocations" destination="sbF-S6-WHW" id="a8Z-jj-JbY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Usuário" id="jhD-Xa-tLz">
+                        <barButtonItem key="rightBarButtonItem" title="Usuário" image="tag" id="jhD-Xa-tLz">
+                            <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showUser" destination="sbF-S6-WHW" id="IwF-bc-LFB"/>
                             </connections>
@@ -493,10 +521,15 @@
         <scene sceneID="lMu-fU-kfK">
             <objects>
                 <navigationController id="hE8-4n-7Yi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Localizações" id="hNq-7w-kph"/>
+                    <tabBarItem key="tabBarItem" title="Localizações" image="locations" id="hNq-7w-kph"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="31V-z1-EWB">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="sjb-W0-o9N" kind="relationship" relationship="rootViewController" id="5iY-Y6-62Q"/>
@@ -510,11 +543,15 @@
         <scene sceneID="EEF-3F-FtG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nP5-TJ-vDO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mapa" id="g8U-DY-qfb"/>
+                    <tabBarItem key="tabBarItem" title="Mapa" image="map" id="g8U-DY-qfb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6H1-u5-2L4">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.90196078430000004" green="0.90980392160000001" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.94509803920000002" green="0.31372549020000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -526,6 +563,12 @@
             <point key="canvasLocation" x="653" y="1206"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="locations" width="30" height="30"/>
+        <image name="map" width="30" height="30"/>
+        <image name="pin" width="30" height="30"/>
+        <image name="tag" width="30" height="30"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WSY-oN-rVI"/>
     </inferredMetricsTieBreakers>
