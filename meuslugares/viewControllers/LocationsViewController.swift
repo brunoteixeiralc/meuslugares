@@ -93,7 +93,7 @@ class LocationsViewController: UITableViewController {
                                y: tableView.sectionHeaderHeight - 14,
                                width: 300, height: 14)
         let label = UILabel(frame: labelRect)
-        label.font = UIFont.boldSystemFont(ofSize: 11)
+        label.font = UIFont.boldSystemFont(ofSize: 12)
         label.text = tableView.dataSource!.tableView!(
             tableView, titleForHeaderInSection: section)
         label.textColor = UIColor(red: 241, green: 80, blue: 37)
