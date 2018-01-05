@@ -34,6 +34,9 @@ class LocationViewCell: UITableViewCell {
                 location.longitude)
             }
             
+            photoImageView.layer.cornerRadius = photoImageView.bounds.size.width/2
+            photoImageView.clipsToBounds = true
+            separatorInset = UIEdgeInsetsMake(0, 82, 0, 0)
             photoImageView.image = thumbnail(for: location)
         }
     }
@@ -42,7 +45,7 @@ class LocationViewCell: UITableViewCell {
         if location.hasPhoto, let image = location.photoImage{
             return image.resized(withBounds: CGSize(width: 52, height: 52))
         }else{
-            return UIImage()
+            return UIImage(named:"no_photo")!
         }
     }
 }
