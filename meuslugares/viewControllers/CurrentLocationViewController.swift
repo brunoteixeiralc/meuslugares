@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 import CoreData
+import Lottie
+
 
 class CurrentLocationViewController: UIViewController {
 
@@ -18,6 +20,9 @@ class CurrentLocationViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var tagBtn: UIButton!
     @IBOutlet weak var getLocationBtn: UIButton!
+    @IBOutlet weak var latTextLabel: UILabel!
+    @IBOutlet weak var longTextLabel: UILabel!
+    @IBOutlet weak var msgAddressTextLabel: UILabel!
     
     let locationManager = CLLocationManager()
     var myLocation: CLLocation?
@@ -28,6 +33,8 @@ class CurrentLocationViewController: UIViewController {
     var placeMark: CLPlacemark?
     var performingReverseGeoCoding = false
     var lastGeocodingError:Error?
+    
+    let animationView = LOTAnimationView(name: "location")
     
     var timer: Timer?
     
@@ -71,6 +78,7 @@ class CurrentLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLottieIcon()
         updateLabels()
     }
     
@@ -85,8 +93,24 @@ class CurrentLocationViewController: UIViewController {
 
     }
     
+    func showLottieIcon(){
+        
+        animationView.contentMode = .scaleAspectFill
+        animationView.frame = CGRect(x: 0, y: 0, width: 800, height: 300)
+        animationView.center =  self.view.center
+        animationView.loopAnimation = true
+        self.view.addSubview(animationView)
+
+    }
+    
     func updateLabels(){
         if let location = myLocation {
+            
+            animationView.alpha = 0.0
+            
+            msgAddressTextLabel.isHidden = false
+            latTextLabel.isHidden = false
+            longTextLabel.isHidden = false
             latLabel.text = String(format: "%.8f", location.coordinate.latitude)
             longLabel.text = String(format: "%.8f", location.coordinate.longitude)
             
@@ -104,10 +128,16 @@ class CurrentLocationViewController: UIViewController {
             }
             
         }else{
+            
+            animationView.alpha = 1.0
+            
             latLabel.text = ""
             longLabel.text = ""
             addressLabel.text = ""
             tagBtn.isHidden = true
+            latTextLabel.isHidden = true
+            longTextLabel.isHidden = true
+             msgAddressTextLabel.isHidden = true
             
             let statusMessage: String
             if let error = lastLocationError as NSError? {
@@ -137,11 +167,17 @@ class CurrentLocationViewController: UIViewController {
             locationManager.startUpdatingLocation()
             updatingLocation = true
             
+            animationView.stop()
+            animationView.play(fromProgress: 0, toProgress: 0.5, withCompletion: nil)
+            
             timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
         }
     }
     
     func stopLocationManager(){
+        
+        animationView.setProgressWithFrame(0.0)
+        
         if updatingLocation{
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
