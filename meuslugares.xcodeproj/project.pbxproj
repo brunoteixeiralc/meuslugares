@@ -21,6 +21,8 @@
 		F47E34551FF3FCA600458F5C /* LocationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E34541FF3FCA600458F5C /* LocationViewCell.swift */; };
 		F47E345D1FFBF56800458F5C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47E345C1FFBF56800458F5C /* MapKit.framework */; };
 		F47E345F1FFBF61F00458F5C /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E345E1FFBF61F00458F5C /* MapViewController.swift */; };
+		F4A0119D205F24FE00DDDE13 /* meuslugaresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A0119C205F24FE00DDDE13 /* meuslugaresUITests.swift */; };
+		F4A011A5205F25CD00DDDE13 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A011A4205F25CC00DDDE13 /* SnapshotHelper.swift */; };
 		F4DF71061FE811E000288915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF71051FE811E000288915 /* AppDelegate.swift */; };
 		F4DF710B1FE811E000288915 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DF71091FE811E000288915 /* Main.storyboard */; };
 		F4DF710D1FE811E000288915 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4DF710C1FE811E000288915 /* Assets.xcassets */; };
@@ -29,6 +31,16 @@
 		F4DF711C1FE96DBE00288915 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF711B1FE96DBE00288915 /* LocationDetailViewController.swift */; };
 		F4DF711E1FEA72CC00288915 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DF711D1FEA72CC00288915 /* CategoryViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F4A0119F205F24FE00DDDE13 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F4DF70FA1FE811DF00288915 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F4DF71011FE811DF00288915;
+			remoteInfo = meuslugares;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5A57966CABFA006C5F3BB501 /* Pods-meuslugares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-meuslugares.release.xcconfig"; path = "Pods/Target Support Files/Pods-meuslugares/Pods-meuslugares.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +59,10 @@
 		F47E34541FF3FCA600458F5C /* LocationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewCell.swift; sourceTree = "<group>"; };
 		F47E345C1FFBF56800458F5C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F47E345E1FFBF61F00458F5C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F4A0119A205F24FE00DDDE13 /* meuslugaresUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = meuslugaresUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4A0119C205F24FE00DDDE13 /* meuslugaresUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meuslugaresUITests.swift; sourceTree = "<group>"; };
+		F4A0119E205F24FE00DDDE13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4A011A4205F25CC00DDDE13 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		F4DF71021FE811DF00288915 /* meuslugares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = meuslugares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DF71051FE811E000288915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4DF710A1FE811E000288915 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +75,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F4A01197205F24FE00DDDE13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4DF70FF1FE811DF00288915 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,10 +152,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F4A0119B205F24FE00DDDE13 /* meuslugaresUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F4A011A4205F25CC00DDDE13 /* SnapshotHelper.swift */,
+				F4A0119C205F24FE00DDDE13 /* meuslugaresUITests.swift */,
+				F4A0119E205F24FE00DDDE13 /* Info.plist */,
+			);
+			path = meuslugaresUITests;
+			sourceTree = "<group>";
+		};
 		F4DF70F91FE811DF00288915 = {
 			isa = PBXGroup;
 			children = (
 				F4DF71041FE811E000288915 /* meuslugares */,
+				F4A0119B205F24FE00DDDE13 /* meuslugaresUITests */,
 				F4DF71031FE811DF00288915 /* Products */,
 				F47E345B1FFBF56800458F5C /* Frameworks */,
 				FACC2FDA4D3005EC9EA09BCC /* Pods */,
@@ -143,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				F4DF71021FE811DF00288915 /* meuslugares.app */,
+				F4A0119A205F24FE00DDDE13 /* meuslugaresUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,6 +212,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F4A01199205F24FE00DDDE13 /* meuslugaresUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4A011A3205F24FE00DDDE13 /* Build configuration list for PBXNativeTarget "meuslugaresUITests" */;
+			buildPhases = (
+				F4A01196205F24FE00DDDE13 /* Sources */,
+				F4A01197205F24FE00DDDE13 /* Frameworks */,
+				F4A01198205F24FE00DDDE13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F4A011A0205F24FE00DDDE13 /* PBXTargetDependency */,
+			);
+			name = meuslugaresUITests;
+			productName = meuslugaresUITests;
+			productReference = F4A0119A205F24FE00DDDE13 /* meuslugaresUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F4DF71011FE811DF00288915 /* meuslugares */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4DF71141FE811E000288915 /* Build configuration list for PBXNativeTarget "meuslugares" */;
@@ -207,9 +260,14 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Bruno Lemgruber";
 				TargetAttributes = {
-					F4DF71011FE811DF00288915 = {
+					F4A01199205F24FE00DDDE13 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						TestTargetID = F4DF71011FE811DF00288915;
+					};
+					F4DF71011FE811DF00288915 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -232,11 +290,19 @@
 			projectRoot = "";
 			targets = (
 				F4DF71011FE811DF00288915 /* meuslugares */,
+				F4A01199205F24FE00DDDE13 /* meuslugaresUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F4A01198205F24FE00DDDE13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4DF71001FE811DF00288915 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,6 +371,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F4A01196205F24FE00DDDE13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4A0119D205F24FE00DDDE13 /* meuslugaresUITests.swift in Sources */,
+				F4A011A5205F25CD00DDDE13 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F4DF70FE1FE811DF00288915 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -329,6 +404,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F4A011A0205F24FE00DDDE13 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F4DF71011FE811DF00288915 /* meuslugares */;
+			targetProxy = F4A0119F205F24FE00DDDE13 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		F4DF71091FE811E000288915 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -341,6 +424,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F4A011A1205F24FE00DDDE13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UW672R5KC;
+				INFOPLIST_FILE = meuslugaresUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.meuslugaresUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = meuslugares;
+			};
+			name = Debug;
+		};
+		F4A011A2205F24FE00DDDE13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8UW672R5KC;
+				INFOPLIST_FILE = meuslugaresUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.meuslugaresUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = meuslugares;
+			};
+			name = Release;
+		};
 		F4DF71121FE811E000288915 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -372,6 +485,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -395,6 +509,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -429,6 +544,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -445,6 +561,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -453,12 +570,14 @@
 			baseConfigurationReference = BBB25E7D6CF4588F0DBC8195 /* Pods-meuslugares.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8UW672R5KC;
 				INFOPLIST_FILE = meuslugares/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.meuslugares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d4fdc402-d977-4e9b-841c-fe7e4aec038a";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development br.com.meuslugares";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -469,12 +588,15 @@
 			baseConfigurationReference = 5A57966CABFA006C5F3BB501 /* Pods-meuslugares.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8UW672R5KC;
 				INFOPLIST_FILE = meuslugares/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.meuslugares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "03b9878d-9a02-410c-be10-280d4e97a4b8";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.meuslugares";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -483,6 +605,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F4A011A3205F24FE00DDDE13 /* Build configuration list for PBXNativeTarget "meuslugaresUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4A011A1205F24FE00DDDE13 /* Debug */,
+				F4A011A2205F24FE00DDDE13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F4DF70FD1FE811DF00288915 /* Build configuration list for PBXProject "meuslugares" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
